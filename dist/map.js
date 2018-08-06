@@ -5,8 +5,26 @@ let Map = {
   polylines: {},
   markerImg: null,
   initMap(obj){
+    let Layer = new AMap.TileLayer()
+    if(obj.layer == 'google'){
+      Layer = new AMap.TileLayer({
+        tileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=m@142&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galil',
+        zIndex: 100
+      })
+    }
+    if(obj.layer == 'googleState'){
+      Layer = new AMap.TileLayer({
+        getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile'
+      })
+    }
     this.markerImg = obj.markerImg;
-    this.map = new AMap.Map(obj.id);
+    this.map = new AMap.Map(obj.id,{
+      resizeEnable: true,
+      center: center,
+      layers: [
+        Layer
+      ]
+    });
     return this.map;
   },
   addMarker(id,arrP,angle=0){

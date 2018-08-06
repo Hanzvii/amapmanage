@@ -1,6 +1,6 @@
 {
   "name": "amapmanage",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "a amap tools",
   "main": "index.js",
   "scripts": {
