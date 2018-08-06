@@ -20,7 +20,6 @@ let Map = {
     this.markerImg = obj.markerImg;
     this.map = new AMap.Map(obj.id,{
       resizeEnable: true,
-      center: center,
       layers: [
         Layer
       ]
